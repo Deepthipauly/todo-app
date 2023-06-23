@@ -7,6 +7,7 @@ require("dotenv").config();
 
 // file import
 const authRouter = require("./routes/auth.routes");
+const taskRouter = require("./routes/task.routes");
 
 // express app creation
 const app = express();

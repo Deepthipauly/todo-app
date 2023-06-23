@@ -9,6 +9,7 @@ const { UserModel, USER_STATUS } = require("../models/user.model");
  * @description To add new todo
  * @param {object} todoData
  * @param {string} [todoData.description]
+ * @param {string} [todoData.userId]
  * @returns {object} added todo details
  */
 
@@ -27,6 +28,9 @@ const addNewTodo = async (todoData) => {
  * @description To edit todo
  * @param {object} todoData
  * @param {string} [todoData.todoId]
+ * @param {string} [todoData.description]
+ * @param {string} [todoData.userId]
+ * @param {string} [todoData.status]
  * @returns {object} updated todo data
  */
 
@@ -56,7 +60,6 @@ const editTodo = async (todoData) => {
 
 /**
  * @description To delete todo
- * @param {string} [todoId]
  */
 const deleteTodo = async ({ todoId, userId }) => {
   if (!todoId) throw new Error("todoId is required");
@@ -75,8 +78,7 @@ const deleteTodo = async ({ todoId, userId }) => {
 
 /**
  * @description To view all todo
- * @param {string} [userId]
- * @returns {object} All Todos
+ * @returns {object[]} All Todos
  */
 
 const viewAllTodo = async ({ userId }) => {
@@ -90,7 +92,6 @@ const viewAllTodo = async ({ userId }) => {
 
 /**
  * @description To view single todo
- * @param {string} [todoId]
  * @returns {object} selected Todo
  */
 

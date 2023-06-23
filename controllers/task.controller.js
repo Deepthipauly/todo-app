@@ -1,7 +1,3 @@
-
-//file import
-
-
 // controller for adding todo
 const addTaskController = async (req, res) => {
   console.log("START: addTaskController");
@@ -16,7 +12,6 @@ const addTaskController = async (req, res) => {
     return res.status(400).json({ error: e.message || "something went wrong" });
   }
 };
-
 
 // controller for editing todo
 const editTaskController = async (req, res) => {
@@ -34,7 +29,6 @@ const editTaskController = async (req, res) => {
   }
 };
 
-
 // controller for deleting todo
 const deleteTaskController = async (req, res) => {
   console.log("START: deleteTaskController");
@@ -49,7 +43,6 @@ const deleteTaskController = async (req, res) => {
   }
 };
 
-
 // controller for fetching all todos
 const allTaskController = async (req, res) => {
   console.log("START: allTaskController");
@@ -58,13 +51,12 @@ const allTaskController = async (req, res) => {
     const fetchAllTask = await viewAllTodo(req.userId);
     return res.status(201).json({
       data: fetchAllTask,
-      message: "All Todo fetched successfully",
+      message: "All Todos fetched successfully",
     });
   } catch (e) {
     return res.status(400).json({ error: e.message || "something went wrong" });
   }
 };
-
 
 // controller for fetching single todo
 const viewSingleTaskController = async (req, res) => {
