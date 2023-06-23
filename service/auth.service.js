@@ -10,6 +10,13 @@ const { TokenModel, TOKEN_STATUS } = require("../models/token.model");
 // file import
 const { isemail } = require("../helper/validator");
 
+/**
+ * @description To register the user
+ * @param {object} registerData
+ * @param {string} [registerData.email]
+ * @param {string} [registerData.password]
+ * @returns {object} user details
+ */
 const register = async (registerData) => {
   const { email, password } = registerData;
   if (!email) throw new Error("email is required");
@@ -36,6 +43,13 @@ const register = async (registerData) => {
   };
 };
 
+/**
+ * @description login the user
+ * @param {object} loginData
+ * @param {string} [loginData.email]
+ * @param {string} [loginData.password]
+ * @returns {object} user details
+ */
 const login = async (loginData) => {
   const { email, password } = loginData;
   if (!email) throw Error("email is required");
@@ -69,6 +83,10 @@ const login = async (loginData) => {
   };
 };
 
+/**
+ * @description logout the user
+ * @param {string} userId
+ */
 const logout = async (userId) => {
   const storedTokenDetails = await TokenModel.findOneAndUpdate(
     { user: new mongoose.Types.ObjectId(userId) },

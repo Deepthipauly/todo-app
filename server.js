@@ -8,13 +8,16 @@ require("dotenv").config();
 // file import
 const authRouter = require("./routes/auth.routes");
 
+// express app creation
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 
 app.use(express.json());
+// Set CORS header
 app.use(cors({ origin: process.env.FRONTEND_URL }));
 
+// listen for uncaughtException Error
 process.on("uncaughtException", (err) => {
   console.log("uncaughtException");
   console.log(err, err.message, err.stack);
@@ -45,6 +48,7 @@ app.listen(PORT, () => {
     });
 });
 
+// listen for unhandledRejection Error
 process.on("unhandledRejection", (err) => {
   console.log("unhandledRejection");
   console.log(err, err.message, err.stack);

@@ -1,6 +1,7 @@
 //file import
 const { register, login, logout } = require("../service/auth.service");
 
+// controller for registering user
 const registerController = async (req, res) => {
   console.log("START: registerController");
   try {
@@ -14,6 +15,7 @@ const registerController = async (req, res) => {
   }
 };
 
+// controller for user login
 const loginController = async (req, res) => {
   console.log("START : loginController");
   try {
@@ -26,6 +28,7 @@ const loginController = async (req, res) => {
   }
 };
 
+// controller for user logout
 const logoutController = async (req, res) => {
   console.log("START:logoutController");
   try {

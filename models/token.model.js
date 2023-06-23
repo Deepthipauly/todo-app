@@ -1,6 +1,10 @@
+// package import
 const mongoose = require("mongoose");
-const { Schema } = mongoose;
+
+// model import
 require("./user.model");
+
+const { Schema } = mongoose;
 
 const TOKEN_STATUS = {
   ACTIVE: "ACTIVE",

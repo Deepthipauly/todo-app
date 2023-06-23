@@ -1,8 +1,12 @@
+// package import
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+
+// model import
 const { TokenModel, TOKEN_STATUS } = require("../models/token.model");
 const { UserModel, USER_STATUS } = require("../models/user.model");
 
+// middleware for verifying the validity of the token
 const verifyToken = async (req, res, next) => {
   try {
     const token = req.headers?.access_token;
