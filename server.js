@@ -5,8 +5,13 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
+// file import
+const authRouter = require("./routes/auth.routes");
+
 const app = express();
 const PORT = process.env.PORT || 4000;
+
+
 app.use(express.json());
 app.use(cors({ origin: process.env.FRONTEND_URL }));
 
@@ -35,7 +40,7 @@ app.listen(PORT, () => {
       console.log("db connected");
     })
     .catch((e) => {
-      console.log("error in connection", e);
+      console.log("error in database connection", e);
       process.exit(1);
     });
 });

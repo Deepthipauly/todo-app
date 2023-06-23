@@ -1,3 +1,6 @@
+//file import
+const { register, login, logout } = require("../service/auth.service");
+
 const registerController = async (req, res) => {
   console.log("START: registerController");
   try {
