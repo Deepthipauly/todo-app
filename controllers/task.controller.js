@@ -1,6 +1,8 @@
 
+//file import
 
 
+// controller for adding todo
 const addTaskController = async (req, res) => {
   console.log("START: addTaskController");
   try {
@@ -15,6 +17,8 @@ const addTaskController = async (req, res) => {
   }
 };
 
+
+// controller for editing todo
 const editTaskController = async (req, res) => {
   console.log("START: editTaskController");
   try {
@@ -30,6 +34,8 @@ const editTaskController = async (req, res) => {
   }
 };
 
+
+// controller for deleting todo
 const deleteTaskController = async (req, res) => {
   console.log("START: deleteTaskController");
   try {
@@ -43,11 +49,13 @@ const deleteTaskController = async (req, res) => {
   }
 };
 
+
+// controller for fetching all todos
 const allTaskController = async (req, res) => {
   console.log("START: allTaskController");
 
   try {
-    const fetchAllTask = await viewAllTask(req.userId);
+    const fetchAllTask = await viewAllTodo(req.userId);
     return res.status(201).json({
       data: fetchAllTask,
       message: "All Todo fetched successfully",
@@ -57,11 +65,13 @@ const allTaskController = async (req, res) => {
   }
 };
 
+
+// controller for fetching single todo
 const viewSingleTaskController = async (req, res) => {
   console.log("START: viewSingleTaskController");
 
   try {
-    const viewSingleTask = await viewTask(req.params.todoId, req.userId);
+    const viewSingleTask = await viewTodo(req.params.todoId, req.userId);
     return res.status(201).json({
       data: viewSingleTask,
       message: "Single Todo fetched",
