@@ -60,8 +60,10 @@ const editTodo = async (todoData) => {
 
 /**
  * @description To delete todo
+ * @param {string} todoId
+ * @param {string} userId
  */
-const deleteTodo = async ({ todoId, userId }) => {
+const deleteTodo = async (todoId, userId) => {
   if (!todoId) throw new Error("todoId is required");
   const deletedtodoData = await TaskModel.findOneAndUpdate(
     {
@@ -78,10 +80,11 @@ const deleteTodo = async ({ todoId, userId }) => {
 
 /**
  * @description To view all todo
+ * @param {string} userId
  * @returns {object[]} All Todos
  */
 
-const viewAllTodo = async ({ userId }) => {
+const viewAllTodo = async (userId) => {
   if (!userId) throw new Error("userId is required");
   const viewAllTodos = await TaskModel.find({
     userId: new mongoose.Types.ObjectId(userId),
@@ -92,10 +95,12 @@ const viewAllTodo = async ({ userId }) => {
 
 /**
  * @description To view single todo
+ * @param {string} userId
+ * @param {string} todoId
  * @returns {object} selected Todo
  */
 
-const viewTodo = async ({ userId, todoId }) => {
+const viewTodo = async (userId, todoId) => {
   if (!todoId) throw new Error("todoId is required");
 
   const selectedTodo = await TaskModel.findOne({
