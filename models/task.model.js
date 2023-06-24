@@ -1,4 +1,3 @@
-
 //package import
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
@@ -19,11 +18,14 @@ const taskSchema = new Schema(
       ref: "user",
       required: true,
     },
+    title: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
     },
-
     status: {
       type: String,
       default: TASK_STATUS.INPROGRESS,

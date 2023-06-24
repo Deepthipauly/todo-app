@@ -14,10 +14,12 @@ const { UserModel, USER_STATUS } = require("../models/user.model");
  */
 
 const addNewTodo = async (todoData) => {
-  const { description, userId } = todoData;
+  const { description, userId, title } = todoData;
+  if (!title) throw new Error("title is required");
   if (!description) throw new Error("todo description is required");
   const addTodo = await TaskModel.create({
     description,
+    title,
     user: userId,
   });
   console.log("NEW TODO ADDED", addTodo);
@@ -35,7 +37,7 @@ const addNewTodo = async (todoData) => {
  */
 
 const editTodo = async (todoData) => {
-  let { description, userId, todoId, status } = todoData;
+  let { description, userId, todoId, status, title } = todoData;
   if (!todoId) throw new Error("todoId is required");
   const isTodo = await TaskModel.countDocuments({
     _id: new mongoose.Types.ObjectId(todoId),
@@ -48,6 +50,7 @@ const editTodo = async (todoData) => {
     status,
   };
   if (description) updateData.description = description;
+  if (title) updateData.title = title;
   const editedTaskData = await TaskModel.findOneAndUpdate(
     { _id: new mongoose.Types.ObjectId(todoId) },
     updateData,
