@@ -6,7 +6,7 @@ Express app
 1. clone the repo
 2. cd into the folder && npm install
 3. update the .env file
-4. npm start ( or use npm run server:dev) 
+4. npm start ( or use npm run start:server) 
 5. server start at http://localhost:4000
 
 #### libraries used: 
