@@ -20,7 +20,8 @@ Express app
 /************************************************************************/
 
 1. user Registration
-   Bcrypt - hasing the password
+   Bcrypt - hasing the password 
+
 2. user login
    jsonwebtoken - JWT token creation
 3. user logout
@@ -30,4 +31,6 @@ Express app
 7. edit a todo
 8. delete a todo
 
+## images
+![first](https://github.com/Deepthipauly/todo-app/assets/121651934/e2e2e99c-5f9a-4a79-b530-aba70545f117)
 
