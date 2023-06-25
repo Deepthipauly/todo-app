@@ -89,7 +89,7 @@ const deleteTodo = async (todoId, userId) => {
 const viewAllTodo = async (userId) => {
   if (!userId) throw new Error("userId is required");
   const viewAllTodos = await TaskModel.find({
-    userId: new mongoose.Types.ObjectId(userId),
+    user: new mongoose.Types.ObjectId(userId),
     status: { $in: [TASK_STATUS.INPROGRESS, TASK_STATUS.COMPLETED] },
   });
   return viewAllTodos;
