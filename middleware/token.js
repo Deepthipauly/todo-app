@@ -28,7 +28,7 @@ const verifyToken = async (req, res, next) => {
   } catch (e) {
     console.log("error in verify token", e);
     return res
-      .status(422)
+      .status(401)
       .json({ message: e.message || "Authentication Failed" });
   }
 };

@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 
 //model import
 const { TaskModel, TASK_STATUS } = require("../models/task.model");
-const { UserModel, USER_STATUS } = require("../models/user.model");
 
 /**
  * @description To add new todo
@@ -103,7 +102,7 @@ const viewAllTodo = async (userId) => {
  * @returns {object} selected Todo
  */
 
-const viewTodo = async (userId, todoId) => {
+const viewTodo = async (todoId,userId) => {
   if (!todoId) throw new Error("todoId is required");
 
   const selectedTodo = await TaskModel.findOne({

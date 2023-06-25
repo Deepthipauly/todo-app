@@ -42,7 +42,7 @@ const deleteTaskController = async (req, res) => {
   console.log("START: deleteTaskController");
   try {
     await deleteTodo(req.params.todoId, req.userId);
-    return res.status(201).json({
+    return res.status(200).json({
       data: [],
       message: "Todo deleted",
     });
@@ -57,7 +57,7 @@ const allTaskController = async (req, res) => {
 
   try {
     const fetchAllTask = await viewAllTodo(req.userId);
-    return res.status(201).json({
+    return res.status(200).json({
       data: fetchAllTask,
       message: "All Todos fetched successfully",
     });
@@ -72,7 +72,7 @@ const viewSingleTaskController = async (req, res) => {
 
   try {
     const viewSingleTask = await viewTodo(req.params.todoId, req.userId);
-    return res.status(201).json({
+    return res.status(200).json({
       data: viewSingleTask,
       message: "Single Todo fetched",
     });
